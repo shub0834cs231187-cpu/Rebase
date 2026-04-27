@@ -16,7 +16,7 @@ const MONTH_NAMES = [
   'November',
   'December',
 ];
-const WEEKDAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const WEEKDAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
 
 function buildCalendarDays(year, month) {
@@ -35,8 +35,8 @@ function buildCalendarDays(year, month) {
   return cells;
 }
 
-function getDayTone(day) {
-  return DAY_TONES[(day - 1) % DAY_TONES.length];
+function getWeekdayTone(weekdayIndex) {
+  return DAY_TONES[weekdayIndex % DAY_TONES.length];
 }
 
 function App() {
@@ -74,8 +74,10 @@ function App() {
         </div>
 
         <div className="weekdays" role="row" aria-label="Weekdays">
-          {WEEKDAY_NAMES.map((weekday) => (
-            <span key={weekday}>{weekday}</span>
+          {WEEKDAY_NAMES.map((weekday, weekdayIndex) => (
+            <span key={weekday} className={`weekday-pill weekday-pill--${getWeekdayTone(weekdayIndex)}`}>
+              {weekday}
+            </span>
           ))}
         </div>
 
@@ -84,7 +86,7 @@ function App() {
             day === null ? (
               <div key={`empty-${index}`} className="day-cell empty" aria-hidden="true" />
             ) : (
-              <div key={day} className={`day-cell day-cell--${getDayTone(day)}`}>
+              <div key={day} className={`day-cell day-cell--${getWeekdayTone(index % 7)}`}>
                 {day}
               </div>
             ),
