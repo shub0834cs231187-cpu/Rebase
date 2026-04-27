@@ -16,9 +16,14 @@ const MONTH_NAMES = [
   'November',
   'December',
 ];
+<<<<<<< HEAD
 const WEEKDAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
 const MONTH_TONES = ['teal', 'coral', 'violet', 'indigo', 'emerald', 'gold'];
+=======
+const WEEKDAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
+>>>>>>> 40d3faed (updated digital clock changes)
 
 function buildCalendarDays(year, month) {
   const firstDayOfWeek = new Date(year, month, 1).getDay();
@@ -36,12 +41,17 @@ function buildCalendarDays(year, month) {
   return cells;
 }
 
+<<<<<<< HEAD
 function getWeekdayTone(weekdayIndex) {
   return DAY_TONES[weekdayIndex % DAY_TONES.length];
 }
 
 function getRandomMonthTone() {
   return MONTH_TONES[Math.floor(Math.random() * MONTH_TONES.length)];
+=======
+function getDayTone(day) {
+  return DAY_TONES[(day - 1) % DAY_TONES.length];
+>>>>>>> 40d3faed (updated digital clock changes)
 }
 
 function App() {
@@ -99,7 +109,11 @@ function App() {
             day === null ? (
               <div key={`empty-${index}`} className="day-cell empty" aria-hidden="true" />
             ) : (
+<<<<<<< HEAD
               <div key={day} className={`day-cell day-cell--${getWeekdayTone(index % 7)}`}>
+=======
+              <div key={day} className={`day-cell day-cell--${getDayTone(day)}`}>
+>>>>>>> 40d3faed (updated digital clock changes)
                 {day}
               </div>
             ),
