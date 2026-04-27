@@ -18,6 +18,7 @@ const MONTH_NAMES = [
 ];
 const WEEKDAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
+const MONTH_TONES = ['teal', 'coral', 'violet', 'indigo', 'emerald', 'gold'];
 
 function buildCalendarDays(year, month) {
   const firstDayOfWeek = new Date(year, month, 1).getDay();
@@ -39,12 +40,22 @@ function getWeekdayTone(weekdayIndex) {
   return DAY_TONES[weekdayIndex % DAY_TONES.length];
 }
 
+function getRandomMonthTone() {
+  return MONTH_TONES[Math.floor(Math.random() * MONTH_TONES.length)];
+}
+
 function App() {
   const [monthIndex, setMonthIndex] = useState(0);
+  const [monthTone, setMonthTone] = useState(() => getRandomMonthTone());
 
   const calendarDays = useMemo(() => buildCalendarDays(YEAR, monthIndex), [monthIndex]);
   const isAtFirstMonth = monthIndex === 0;
   const isAtLastMonth = monthIndex === 11;
+
+  function changeMonth(nextMonthIndex) {
+    setMonthIndex(nextMonthIndex);
+    setMonthTone(getRandomMonthTone());
+  }
 
   return (
     <main className="calendar-app">
@@ -58,15 +69,17 @@ function App() {
         <div className="month-toolbar" role="group" aria-label="Change month">
           <button
             type="button"
-            onClick={() => setMonthIndex((prev) => prev - 1)}
+            onClick={() => changeMonth(monthIndex - 1)}
             disabled={isAtFirstMonth}
           >
             Previous
           </button>
-          <h2 aria-live="polite">{MONTH_NAMES[monthIndex]}</h2>
+          <h2 className={`month-box month-box--${monthTone}`} aria-live="polite">
+            {MONTH_NAMES[monthIndex]}
+          </h2>
           <button
             type="button"
-            onClick={() => setMonthIndex((prev) => prev + 1)}
+            onClick={() => changeMonth(monthIndex + 1)}
             disabled={isAtLastMonth}
           >
             Next
