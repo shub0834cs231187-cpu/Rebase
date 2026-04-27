@@ -17,6 +17,7 @@ const MONTH_NAMES = [
   'December',
 ];
 const WEEKDAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
 
 function buildCalendarDays(year, month) {
   const firstDayOfWeek = new Date(year, month, 1).getDay();
@@ -32,6 +33,10 @@ function buildCalendarDays(year, month) {
   }
 
   return cells;
+}
+
+function getDayTone(day) {
+  return DAY_TONES[(day - 1) % DAY_TONES.length];
 }
 
 function App() {
@@ -79,7 +84,7 @@ function App() {
             day === null ? (
               <div key={`empty-${index}`} className="day-cell empty" aria-hidden="true" />
             ) : (
-              <div key={day} className="day-cell">
+              <div key={day} className={`day-cell day-cell--${getDayTone(day)}`}>
                 {day}
               </div>
             ),
