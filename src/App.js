@@ -17,6 +17,7 @@ const MONTH_NAMES = [
   'December',
 ];
 <<<<<<< HEAD
+<<<<<<< HEAD
 const WEEKDAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
 const MONTH_TONES = ['teal', 'coral', 'violet', 'indigo', 'emerald', 'gold'];
@@ -24,6 +25,10 @@ const MONTH_TONES = ['teal', 'coral', 'violet', 'indigo', 'emerald', 'gold'];
 const WEEKDAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
 >>>>>>> 40d3faed (updated digital clock changes)
+=======
+const WEEKDAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const DAY_TONES = ['sun', 'peach', 'mint', 'sky', 'lavender', 'amber', 'rose'];
+>>>>>>> 505308d2 (Merge pull request #1 from shub0834cs231187-cpu/dev_update)
 
 function buildCalendarDays(year, month) {
   const firstDayOfWeek = new Date(year, month, 1).getDay();
@@ -42,10 +47,14 @@ function buildCalendarDays(year, month) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 505308d2 (Merge pull request #1 from shub0834cs231187-cpu/dev_update)
 function getWeekdayTone(weekdayIndex) {
   return DAY_TONES[weekdayIndex % DAY_TONES.length];
 }
 
+<<<<<<< HEAD
 function getRandomMonthTone() {
   return MONTH_TONES[Math.floor(Math.random() * MONTH_TONES.length)];
 =======
@@ -54,6 +63,8 @@ function getDayTone(day) {
 >>>>>>> 40d3faed (updated digital clock changes)
 }
 
+=======
+>>>>>>> 505308d2 (Merge pull request #1 from shub0834cs231187-cpu/dev_update)
 function App() {
   const [monthIndex, setMonthIndex] = useState(0);
   const [monthTone, setMonthTone] = useState(() => getRandomMonthTone());
@@ -110,10 +121,14 @@ function App() {
               <div key={`empty-${index}`} className="day-cell empty" aria-hidden="true" />
             ) : (
 <<<<<<< HEAD
+<<<<<<< HEAD
               <div key={day} className={`day-cell day-cell--${getWeekdayTone(index % 7)}`}>
 =======
               <div key={day} className={`day-cell day-cell--${getDayTone(day)}`}>
 >>>>>>> 40d3faed (updated digital clock changes)
+=======
+              <div key={day} className={`day-cell day-cell--${getWeekdayTone(index % 7)}`}>
+>>>>>>> 505308d2 (Merge pull request #1 from shub0834cs231187-cpu/dev_update)
                 {day}
               </div>
             ),
