@@ -67,7 +67,39 @@
 .month-toolbar h2 {
   margin: 0;
   font-size: clamp(1.25rem, 2.5vw, 1.55rem);
-  color: #0f172a;
+}
+
+.month-box {
+  min-width: 160px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.14);
+}
+
+.month-box--teal {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+}
+
+.month-box--coral {
+  background: linear-gradient(135deg, #e11d48, #fb7185);
+}
+
+.month-box--violet {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.month-box--indigo {
+  background: linear-gradient(135deg, #4338ca, #818cf8);
+}
+
+.month-box--emerald {
+  background: linear-gradient(135deg, #047857, #34d399);
+}
+
+.month-box--gold {
+  background: linear-gradient(135deg, #b45309, #f59e0b);
 }
 
 .weekdays {
